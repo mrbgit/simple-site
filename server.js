@@ -11,16 +11,21 @@ punchline: 'A (massage)ynist!'},
 {setup: 'What did the zero say to the eight?',
 punchline: 'nice belt'}
 ];
+// use /app as home folder
+app.use(express.static(__dirname + '/app/'));
 
+//make index.html home page
 app.get('/', function(req, res){
-  res.send('Hello World');
+  res.sendFile('index.html');
 });
 
+// serve random joke from json object
 app.get('/jokes', function(req, res){
   var randomIndex = Math.floor(Math.random() * jokes.length);
   res.json(jokes[randomIndex]);
 });
 
+// use string generator at /random-strings page
 app.get('/random-strings', function(req, res){
   var tempArray = [];
       var randomNum = Math.floor((Math.random() * 25) + 1);
