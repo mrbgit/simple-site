@@ -45,7 +45,7 @@ $(document).ready(function() {
 
   $('#myButton').on('click', function(){
     randomStringFromArray(alphabet);
-    $('#answer').append('<li>' + randomString + '</li>');
+    $('#answer').text('<li>' + randomString + '</li>');
   });
   // $('#jokes').on('click', function(){
   //   $('#ajax-text').append('Hello world');
