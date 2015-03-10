@@ -9,6 +9,20 @@
       </section>
       <button id="jokes">Get a random joke</button>
       <p id="ajax-text"></p>
+      <input id="playerEntered" class="player-name-box" placeholder="Enter player's name to find their position"></input><button id="team">Find out their position</button>
+      <p id="playerPosition"></p>
+      <section id="pigLatinTranslator">
+        <p>Piglatinify your name now!</p>
+        <form id="piglatin">
+        <label>First Name</label><input type="text"
+        name="firstname">
+        <label>Last Name</label><input type="text"
+        name="lastname">
+        <input type="submit" value="Piglatinify It"/>
+        </form>
+        <p>Your name in Pig Latin is:</p>
+        <p id="piglatinified"></p>
+      </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="script.js"></script>

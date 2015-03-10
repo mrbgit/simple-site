@@ -1,6 +1,35 @@
-var express = require('express');
+var express = require("express");
 var app = express();
+var bodyparser = require("body-parser");
 var port = process.env.PORT || 3000;
+var piglatinify = require("./lib/piglatinify.js");
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended: true}));
+
+var team = [{ name: "Osvaldo Alonso",
+              position: "Midfielder"},
+              {name: "Stefan Frei",
+              position: "Goalkeeper"},
+              {name: "Tyrone Mears",
+              position: "Defender"},
+              {name: "Brad Evans",
+              position: "Midfielder"},
+              {name: "Chad Marshall",
+              position: "Defender"},
+              {name: "Leonardo Gonzalez",
+              position: "Defender"},
+              {name: "Lamar Neagle",
+              position: "Midfielder/Forward"},
+              {name: "Gonzalo Pineda",
+              position: "Midfielder"},
+              {name: "Micheal Azira",
+              position: "Midfielder"},
+              {name: "Marco Pappa",
+              position: "Midfielder"},
+              {name: "Clint Dempsey",
+              position: "Forward"},
+              {name: "Obafemi Martins",
+              position: "Forward"}];
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u' , 'v', 'w', 'x','y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&'];
 var randomString = '';
 var jokes = [
@@ -41,3 +70,19 @@ app.get('/random-strings', function(req, res){
 app.listen(port, function(){
   console.log('Server has been started on ' + port);
 });
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// use the app.get function to put an endpoint of /team and take in a function
+app.get("/team", function(req, res) {
+// use .json on the res parameter to get the value of the team object and assign it to a variable
+var sounders = res.json(team);
+});
+
+app.post("/piglatin", function(req, res) {
+  var firstname = piglatinify(req.body.firstname);
+  var lastname = piglatinify(req.body.lastname);
+  var piglatined = {firstname: firstname, lastname:
+  lastname};
+  res.json(piglatined);
+});
+

@@ -11,3 +11,7 @@ li {
 main {
   margin-top: 3%;
 }
+
+.player-name-box {
+  width: 500px;
+}
