@@ -3,6 +3,7 @@ var app = express();
 var bodyparser = require("body-parser");
 var port = process.env.PORT || 3000;
 var piglatinify = require("./lib/piglatinify.js");
+var tutneseify = require("./lib/tutnese.js");
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 
@@ -75,7 +76,7 @@ app.listen(port, function(){
 // use the app.get function to put an endpoint of /team and take in a function
 app.get("/team", function(req, res) {
 // use .json on the res parameter to get the value of the team object and assign it to a variable
-var sounders = res.json(team);
+res.json(team);
 });
 
 app.post("/piglatin", function(req, res) {
@@ -86,3 +87,10 @@ app.post("/piglatin", function(req, res) {
   res.json(piglatined);
 });
 
+app.post("/tutnese", function(req, res) {
+  var firstname = tutneseify(req.body.firstnameTutnese);
+  var lastname = tutneseify(req.body.lastnameTutnese);
+  var tutnesed = {firstname: firstname, lastname:
+  lastname};
+  res.json(tutnesed);
+});

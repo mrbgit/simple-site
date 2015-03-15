@@ -45,7 +45,7 @@ $(document).ready(function() {
 
   $('#myButton').on('click', function(){
     randomStringFromArray(alphabet);
-    $('#answer').text('<li>' + randomString + '</li>');
+    $('#answer').text(randomString);
   });
   // $('#jokes').on('click', function(){
   //   $('#ajax-text').append('Hello world');
@@ -69,12 +69,30 @@ $(document).ready(function() {
     var firstname = $('input[name=firstname]').val();
     var lastname = $('input[name=lastname]').val();
     var name = {firstname: firstname, lastname: lastname};
-    console.log(name.firstname);
+    // console.log(name.firstname);
     $.post("piglatin", name, function(response) {
       var piglatinified = response.firstname + " " +
       response.lastname;
     $("#piglatinified").text(piglatinified);
     });
     });
+
+// New Tutnese translator
+// assign function to fun on submit of tutnese form
+  $("#tutnese").on("submit", function(e) {
+    // Stop page from restarting on form submit
+    e.preventDefault();
+    // get the values from the tutnese form
+    var firstnameTutnese = $("input[name=firstnameTutnese]").val();
+    var lastnameTutnese = $("input[name=lastnameTutnese]").val();
+    var tutneseName = {firstnameTutnese: firstnameTutnese, lastnameTutnese: lastnameTutnese};
+    console.log(tutneseName.firstnameTutnese);
+    $.post("tutnese", tutneseName, function(response) {
+      var tutnesedName = response.firstnameTutnese + " " +
+      response.lastnameTutnese;
+    $("#tutnesed").text(tutnesedName);
+    });
+    });
+
 });
 

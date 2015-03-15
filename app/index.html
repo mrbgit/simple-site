@@ -9,8 +9,6 @@
       </section>
       <button id="jokes">Get a random joke</button>
       <p id="ajax-text"></p>
-      <input id="playerEntered" class="player-name-box" placeholder="Enter player's name to find their position"></input><button id="team">Find out their position</button>
-      <p id="playerPosition"></p>
       <section id="pigLatinTranslator">
         <p>Piglatinify your name now!</p>
         <form id="piglatin">
@@ -22,6 +20,20 @@
         </form>
         <p>Your name in Pig Latin is:</p>
         <p id="piglatinified"></p>
+      </section>
+      <input id="playerEntered" class="player-name-box" placeholder="Enter player's name to find their position"></input><button id="team">Find out their position</button>
+      <p id="playerPosition"></p>
+      <section id="tutneseTranslator">
+        <p>Don't like your name in Pig Latin? Try Tutnese!</p>
+        <form id="tutnese">
+        <label>First Name</label><input type="text"
+        name="firstnameTutnese">
+        <label>Last Name</label><input type="text"
+        name="lastnameTutnese">
+        <input type="submit" value="Tutnese-ify It"/>
+        </form>
+        <p>Your name in Tutnese is:</p>
+        <p id="tutnesed"></p>
       </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
