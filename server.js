@@ -3,7 +3,7 @@ var app = express();
 var bodyparser = require("body-parser");
 var port = process.env.PORT || 3000;
 var piglatinify = require("./lib/piglatinify.js");
-var tutneseify = require("./lib/tutnese.js");
+// var tutneseify = require("./lib/tutnese.js");
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 
@@ -124,9 +124,9 @@ function tutneseify(inputName) {
 }
 
 app.post("/tutnese", function(req, res) {
-  var firstname = tutneseify(req.body.firstnameTutnese);
-  var lastname = tutneseify(req.body.lastnameTutnese);
-  var tutnesed = {firstname: firstname, lastname:
-  lastname};
+  var firstnameTutnese = tutneseify(req.body.firstnameTutnese);
+  var lastnameTutnese = tutneseify(req.body.lastnameTutnese);
+  var tutnesed = {firstnameTutnese: firstnameTutnese, lastnameTutnese: lastnameTutnese};
   res.json(tutnesed);
 });
+

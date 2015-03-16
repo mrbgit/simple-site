@@ -87,11 +87,11 @@ $(document).ready(function() {
     var firstnameTutnese = $("input[name=firstnameTutnese]").val();
     var lastnameTutnese = $("input[name=lastnameTutnese]").val();
     var tutneseName = {firstnameTutnese: firstnameTutnese, lastnameTutnese: lastnameTutnese};
-    // console.log(tutneseName.firstnameTutnese);
+    console.log(tutneseName.firstnameTutnese);
     $.post("tutnese", tutneseName, function(response) {
-      var tutnesedName = response.firstnameTutnese + " " +
+      var madeIntoTutanese = response.firstnameTutnese + " " +
       response.lastnameTutnese;
-    $("#tutnesed").text(tutnesedName);
+    $("#tutnesed").text(madeIntoTutanese);
     });
   });
 
