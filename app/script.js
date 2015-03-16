@@ -29,6 +29,7 @@ $(document).ready(function() {
     $("#playerPosition").text(positionName);
   });
 });
+
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u' , 'v', 'w', 'x','y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&'];
   var randomString = '';
@@ -75,7 +76,7 @@ $(document).ready(function() {
       response.lastname;
     $("#piglatinified").text(piglatinified);
     });
-    });
+  });
 
 // New Tutnese translator
 // assign function to fun on submit of tutnese form
@@ -86,13 +87,13 @@ $(document).ready(function() {
     var firstnameTutnese = $("input[name=firstnameTutnese]").val();
     var lastnameTutnese = $("input[name=lastnameTutnese]").val();
     var tutneseName = {firstnameTutnese: firstnameTutnese, lastnameTutnese: lastnameTutnese};
-    console.log(tutneseName.firstnameTutnese);
+    // console.log(tutneseName.firstnameTutnese);
     $.post("tutnese", tutneseName, function(response) {
       var tutnesedName = response.firstnameTutnese + " " +
       response.lastnameTutnese;
     $("#tutnesed").text(tutnesedName);
     });
-    });
+  });
 
 });
 

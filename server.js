@@ -87,6 +87,48 @@ app.post("/piglatin", function(req, res) {
   res.json(piglatined);
 });
 
+  // Tutnese function
+function tutneseify(inputName) {
+  // create needed variables
+  var individualLetters;
+  var newName;
+  // create hash for vowels
+  // var vowelHash = {a: 1, e: 1, i: 1, o:1, u:1, A: 1, E: 1, I: 1, O: 1, U: 1};
+  // console.log(vowelHash);
+  var vowels = ["a","e","i","o","u"];
+  // create object for consonants
+  var tutneseConsonants = {b: ["bub", "bab"], c: ["cash", "coch"], d: ["dud", "dorl"], f: ["fuf", "fud"], g: ["gug", "gul"], h: ["hash", "hutch"], j: ["jay", "jug"], k: ["kuck", "klack"], l: ["lul", "lon"], m: ["mum", "mom"], n: ["nun", "nog"], p: ["pub", "pup"], q: ["quack", "queue"], r: ["rug", "rur"], s: ["sus", "sag"], t: ["tut", "taf"], v: ["vuv", "van"], w: ["wack", "wash"], x: ["ex", "xux"], y: ["yub", "yuck"], z: ["zub", "zug"]};
+  // make letters lowercast
+  inputName.toLowerCase();
+  // separate letters of original word into array of letters
+  var separatedLetters = inputName.split("");
+  console.log(separatedLetters);
+  console.log("the length of the array separatedLetters is " + separatedLetters.length);
+  // for loop to go through array of letters
+  for (var i = 0; i < separatedLetters.length; i++) {
+    console.log("the loop ran and the value was " + separatedLetters[i]);
+      var currentItem = separatedLetters[i];
+    // if the letter in the arrray is not a vowel
+    if (vowels.indexOf(separatedLetters[i]) !== -1) {
+      console.log("the if loop ran");
+    } else {
+      console.log("separatedLetters[i] " + separatedLetters[i]);
+      console.log("currentItem " + currentItem);
+      console.log("tutneseConsonants[currentItem] " + tutneseConsonants[currentItem]);
+      // get a random number between 0 and 1
+      var randomNum = Math.round(Math.random());
+      // var arrayLetter = tutneseConsonants[currentItem][randomNum];
+      console.log("this letter came from an array " + tutneseConsonants[currentItem][randomNum]);
+      // make the value of the letter equal to a random item in the array
+      // separatedLetters[i] = arrayLetter;
+      separatedLetters[i] = tutneseConsonants[currentItem][randomNum];
+      }
+  }
+  newName = separatedLetters.join("");
+  // newName.charAt(0).toUpperCase();
+  return newName;
+}
+
 app.post("/tutnese", function(req, res) {
   var firstname = tutneseify(req.body.firstnameTutnese);
   var lastname = tutneseify(req.body.lastnameTutnese);
