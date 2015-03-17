@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // assigns function to run when #team button is clicked
+/*  // assigns function to run when #team button is clicked
   $("#team").on("click", function() {
     // assigns the id of the #team button as the url variable
     var url = $(this).attr("id");
@@ -28,7 +28,7 @@ $(document).ready(function() {
     // place the positionName message in the DOM
     $("#playerPosition").text(positionName);
   });
-});
+});*/
 
 $("#myButton").on("click", function(){
   $.get("randomStringFromArray", function (response) {
@@ -40,18 +40,13 @@ $("#myButton").on("click", function(){
     $.get("jokes", function (response) {
       $("#ajax-text").text(response);
     })
-  /*
-    var url = $(this).attr('id');
-    $.get(url, function (response) {
-      var resText;
-      if(typeof response === 'object'){
-        resText = response.setup + ': ' + response.punchline;
-      } else {
-        resText = response;
-      }
-      $('#ajax-text').text(resText);
-    });
-  */});
+  });
+
+  $("#soccerButton").on("click", function() {
+    $.get("pickATeam", function (response) {
+      $("#soccerTeam").text(response);
+    })
+  });
 
   $("#piglatin").on("submit", function(e) {
     e.preventDefault();
@@ -81,6 +76,17 @@ $("#myButton").on("click", function(){
     $("#tutnesed").text(madeIntoTutanese);
     });
   });
+// $("#playerEntered").on("submit", function(e){
+//   // Stop page from restarting on form submit
+//   e.preventDefault();
+//   var playerName = $("input[name=playerName]").val();
+//   var nameToCheck = {playerName: playerName};
+//   console.log(playerName);
+//   console.log(nameToCheck);
+//     $.get("team", nameToCheck, function (response) {
+//       var checkedIfPlayer = response;
+//   $("#playerPosition").text(checkedIfPlayer);
+//   });
+// })
 
 });
-
