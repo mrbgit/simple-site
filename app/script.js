@@ -36,7 +36,11 @@ $("#myButton").on("click", function(){
   });
 })
 
-  $('#jokes').on('click', function() {/*
+  $('#jokes').on('click', function() {
+    $.get("jokes", function (response) {
+      $("#ajax-text").text(response);
+    })
+  /*
     var url = $(this).attr('id');
     $.get(url, function (response) {
       var resText;

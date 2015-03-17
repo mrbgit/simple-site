@@ -5,6 +5,7 @@ var port = process.env.PORT || 3000;
 var piglatinify = require("./lib/piglatinify.js");
 var tutneseify = require("./lib/tutnese.js");
 var randomStringFromArray  = require("./lib/random-string.js");
+var randomJoke  = require("./lib/jokes.js");
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 
@@ -50,8 +51,9 @@ app.get('/', function(req, res){
 
 // serve random joke from json object
 app.get('/jokes', function(req, res){
-  var randomIndex = Math.floor(Math.random() * jokes.length);
-  res.json(jokes[randomIndex]);
+  // var randomIndex = Math.floor(Math.random() * jokes.length);
+  // res.json(jokes[randomIndex]);
+  res.json(randomJoke());
 });
 
 app.get("/randomStringFromArray", function(req, res) {
