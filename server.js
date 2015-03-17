@@ -4,6 +4,7 @@ var bodyparser = require("body-parser");
 var port = process.env.PORT || 3000;
 var piglatinify = require("./lib/piglatinify.js");
 var tutneseify = require("./lib/tutnese.js");
+var randomStringFromArray  = require("./lib/random-string.js");
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 
@@ -31,7 +32,6 @@ var team = [{ name: "Osvaldo Alonso",
               position: "Forward"},
               {name: "Obafemi Martins",
               position: "Forward"}];
-var randomString = '';
 var jokes = [
 {setup: 'What do you call a masturbating cow?',
 punchline: 'Beef stroking off!'},
@@ -54,18 +54,10 @@ app.get('/jokes', function(req, res){
   res.json(jokes[randomIndex]);
 });
 
-// use string generator at /random-strings page
-app.get('/random-strings', function(req, res){
-  var tempArray = [];
-      var randomNum = Math.floor((Math.random() * 25) + 1);
-      for (var i = 0; i < randomNum; i++) {
-        var randomNumber = Math.floor(Math.random() * alphabet.length);
-        tempArray[i] = alphabet[randomNumber];
-      }
-      randomString = tempArray.join('');
-      res.send(randomString);
-      return randomString;
-});
+app.get("/randomStringFromArray", function(req, res) {
+  // var newString = randomStringFromArray();
+  res.json(randomStringFromArray());
+})
 
 app.listen(port, function(){
   console.log('Server has been started on ' + port);

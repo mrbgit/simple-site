@@ -30,27 +30,11 @@ $(document).ready(function() {
   });
 });
 
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u' , 'v', 'w', 'x','y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '!', '@', '#', '$', '%', '^', '&'];
-  var randomString = '';
-    function randomStringFromArray(array) {
-      var tempArray = [];
-      var randomNum = Math.floor((Math.random() * 25) + 1);
-      for (var i = 0; i < randomNum; i++) {
-        var randomNumber = Math.floor(Math.random() * array.length);
-        tempArray[i] = array[randomNumber];
-      }
-      randomString = tempArray.join('');
-      return randomString;
-    }
-
-  $('#myButton').on('click', function(){
-    randomStringFromArray(alphabet);
-    $('#answer').text(randomString);
+$("#myButton").on("click", function(){
+  $.get("randomStringFromArray", function (response) {
+  $("#answer").text(response);
   });
-  // $('#jokes').on('click', function(){
-  //   $('#ajax-text').append('Hello world');
-  // });
+})
 
   $('#jokes').on('click', function() {
     var url = $(this).attr('id');
@@ -71,7 +55,7 @@ $(document).ready(function() {
     var lastname = $('input[name=lastname]').val();
     var name = {firstname: firstname, lastname: lastname};
     // console.log(name.firstname);
-    $.post("piglatin", name, function(response) {
+    $.post("piglatin", name, function (response) {
       var piglatinified = response.firstname + " " +
       response.lastname;
     $("#piglatinified").text(piglatinified);
@@ -87,7 +71,6 @@ $(document).ready(function() {
     var firstnameTutnese = $("input[name=firstnameTutnese]").val();
     var lastnameTutnese = $("input[name=lastnameTutnese]").val();
     var tutneseName = {firstnameTutnese: firstnameTutnese, lastnameTutnese: lastnameTutnese};
-    console.log(tutneseName.firstnameTutnese);
     $.post("tutnese", tutneseName, function(response) {
       var madeIntoTutanese = response.firstnameTutnese + " " +
       response.lastnameTutnese;
