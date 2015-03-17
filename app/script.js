@@ -36,7 +36,7 @@ $("#myButton").on("click", function(){
   });
 })
 
-  $('#jokes').on('click', function() {
+  $('#jokes').on('click', function() {/*
     var url = $(this).attr('id');
     $.get(url, function (response) {
       var resText;
@@ -47,7 +47,7 @@ $("#myButton").on("click", function(){
       }
       $('#ajax-text').text(resText);
     });
-  });
+  */});
 
   $("#piglatin").on("submit", function(e) {
     e.preventDefault();

@@ -32,14 +32,14 @@ var team = [{ name: "Osvaldo Alonso",
               position: "Forward"},
               {name: "Obafemi Martins",
               position: "Forward"}];
-var jokes = [
-{setup: 'What do you call a masturbating cow?',
-punchline: 'Beef stroking off!'},
-{setup: 'What do you call a masseuse who hates women?',
-punchline: 'A (massage)ynist!'},
-{setup: 'What did the zero say to the eight?',
-punchline: 'nice belt'}
-];
+// var jokes = [
+// {setup: 'What do you call a masturbating cow?',
+// punchline: 'Beef stroking off!'},
+// {setup: 'What do you call a masseuse who hates women?',
+// punchline: 'A (massage)ynist!'},
+// {setup: 'What did the zero say to the eight?',
+// punchline: 'nice belt'}
+// ];
 // use /app as home folder
 app.use(express.static(__dirname + '/app/'));
 
