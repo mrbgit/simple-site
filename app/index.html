@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+  </head>
+  <body>
+    <main>
+      <button id="myButton" class="buttonOne">Click Here for a Random String</button>
+      <section id="answer">
+      </section>
+      <button id="jokes">Get a random joke</button>
+      <p id="ajax-text"></p>
+      <section id="pigLatinTranslator">
+        <p>Piglatinify your name now!</p>
+        <form id="piglatin">
+        <label>First Name</label><input type="text"
+        name="firstname">
+        <label>Last Name</label><input type="text"
+        name="lastname">
+        <input type="submit" value="Piglatinify It"/>
+        </form>
+        <p>Your name in Pig Latin is:</p>
+        <p id="piglatinified"></p>
+      </section>
+      <button id="soccerButton" class="buttonTwo">Which team should I root for?</button>
+      <p id="soccerTeam"></p>
+      <section id="tutneseTranslator">
+        <p>Don't like your name in Pig Latin? Try Tutnese!</p>
+        <form id="tutnese">
+        <label>First Name: </label><input type="text"
+        name="firstnameTutnese">
+        <label>Last Name: </label><input type="text"
+        name="lastnameTutnese">
+        <input type="submit" value="Tutnese-ify It"/>
+        </form>
+        <p>Your name in Tutnese is:</p>
+        <p id="tutnesed"></p>
+      </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
